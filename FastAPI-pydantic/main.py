@@ -1,13 +1,15 @@
+from typing import Union
+
 from fastapi import FastAPI
-from pydantic import BaseModel
 
 app = FastAPI()
 
-class User(BaseModel):
-    name: str
-    age: int
-    email: str
 
-@app.post("/users/")
-async def create_user(user: User):  # Use async for better async handling
-    return {"message": f"User {user.name} created", "user_data": user}
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}

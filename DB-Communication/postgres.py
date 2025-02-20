@@ -1,5 +1,3 @@
-'''
-
 import psycopg2
 
 # Connect to PostgreSQL
@@ -33,4 +31,3 @@ print(cursor.fetchall())
 # Close connection
 cursor.close()
 conn.close()
-'''

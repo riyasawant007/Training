@@ -51,24 +51,26 @@
 - `git config --global user.name "name"` : Set the global username
 - `git config --global user.email "email"` : Set the global email
 
+### Using GitHub CLI
+
 ## Issues
-- `git issue list` : List all issues
-- `git issue create` : Create a new issue
-- `git issue close <issue>` : Close an issue
+- `gh issue list` : List all issues
+- `gh issue create` : Create a new issue
+- `gh issue close <issue>` : Close an issue
 
 ## Pull Requests
 - `gh pr list` : List all pull requests
-- `git pr create` : Create a new pull request
-- `git pr merge <pr>` : Merge a pull request
+- `gh pr create` : Create a new pull request
+- `gh pr merge <pr>` : Merge a pull request
 
 ## Private Repositories
-- `git repo create <repo> --private` : Create a new private repository
-- `git repo clone <repo>` : Clone a private repository
+- `gh repo create <repo> --private` : Create a new private repository
+- `gh repo clone <repo>` : Clone a private repository
 
 ## Releases
-- `git release list` : List all releases
-- `git release create <tag> -m "message"` : Create a new release
-- `git release delete <tag>` : Delete a release
+- `gh release list` : List all releases
+- `gh release create <tag> -m "message"` : Create a new release
+- `gh release delete <tag>` : Delete a release
 
 
 For more detailed information, refer to the [official Git documentation](https://git-scm.com/doc).

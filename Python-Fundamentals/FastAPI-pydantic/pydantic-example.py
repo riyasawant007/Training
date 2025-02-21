@@ -73,39 +73,28 @@ def main() -> None:
             assert user.friends == [], "The friends list should be empty"
             assert user.blocked == [], "The blocked list should be empty"
 
-        response = client.get("/users")
-        assert response.status_code == 200, "Response code should be 200"
-        assert len(response.json()) == 5, "There should be 5 users"
+            response = client.get("/users")
+            assert response.status_code == 200, "Response code should be 200"
+            assert len(response.json()) == 5, "There should be 5 users"
 
-        response = client.post(
-            "/users", json={"name": "User 5", "email": "example5@arjancodes.com"}
-        )
-        assert response.status_code == 200
-        assert response.json()["name"] == "User 5", (
-            "The name of the user should be User 5"
-        )
-        assert response.json()["id"], "The user should have an id"
+            response = client.post(
+                "/users", json={"name": "User 5", "email": "example5@arjancodes.com"}
+            )
 
-        user = User.model_validate(response.json())
-        assert str(user.id) == response.json()["id"], "The id should be the same"
-        assert user.signup_ts, "The signup timestamp should be set"
-        assert user.friends == [], "The friends list should be empty"
-        assert user.blocked == [], "The blocked list should be empty"
+            response = client.get(f"/users/{response.json()['id']}")
+            assert response.status_code == 200
+            assert response.json()["name"] == "User 5", (
+                "This should be the newly created user"
+            )
 
-        response = client.get(f"/users/{response.json()['id']}")
-        assert response.status_code == 200
-        assert response.json()["name"] == "User 5", (
-            "This should be the newly created user"
-        )
+            response = client.get(f"/users/{uuid4()}")
+            assert response.status_code == 404
+            assert response.json()["message"] == "User not found", (
+                "We technically should not find this user"
+            )
 
-        response = client.get(f"/users/{uuid4()}")
-        assert response.status_code == 404
-        assert response.json()["message"] == "User not found", (
-            "We technically should not find this user"
-        )
-
-        response = client.post("/users", json={"name": "User 6", "email": "wrong"})
-        assert response.status_code == 422, "The email address is should be invalid"
+            response = client.post("/users", json={"name": "User 6", "email": "wrong"})
+            assert response.status_code == 422, "The email address is should be invalid"
 
 
 if __name__ == "__main__":

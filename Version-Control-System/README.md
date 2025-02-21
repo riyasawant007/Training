@@ -57,7 +57,7 @@
 - `git issue close <issue>` : Close an issue
 
 ## Pull Requests
-- `git pr list` : List all pull requests
+- `gh pr list` : List all pull requests
 - `git pr create` : Create a new pull request
 - `git pr merge <pr>` : Merge a pull request
 

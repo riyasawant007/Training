@@ -60,7 +60,5 @@ Displays the history of system reboots.
 ```bash
 last reboot
 ```
-
-## Conclusion
-Using these commands, you can effectively monitor CPU, memory, disk usage, and system uptime, helping to maintain system health and diagnose performance issues.
+Using these commands, one can effectively monitor CPU, memory, disk usage, and system uptime, helping to maintain system health and diagnose performance issues.
 

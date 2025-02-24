@@ -1,6 +1,5 @@
 # Managing Processes in Linux
 
-## Introduction
 Managing processes is essential for system administration and troubleshooting in Linux. This guide covers essential commands like `ps`, `kill`, and others to monitor and control processes.
 
 ## 1. **ps** - View Running Processes

@@ -23,7 +23,7 @@ spec:
     command: ['sh', '-c', 'while true; do echo sidecar running; sleep 10; done']
 ```
 
-### **Explanation:**
+
 1. **`app-container`**: Runs an Nginx web server.
 2. **`sidecar-container`**: Runs a background process that continuously logs a message.
 

@@ -77,5 +77,91 @@ history
 ```
 
 ---
-This guide covers the essential steps to set up Kubernetes using Minikube on Fedora. If you encounter any issues, ensure that Docker is running and that you have sufficient system resources allocated for Minikube.
+## 2. Kubernetes Pods
+
+A Pod is the smallest and simplest unit in the Kubernetes object model. It represents a single instance of a running process in a cluster.
+
+### Creating a Pod
+A basic example of a Pod definition in YAML:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: my-container
+    image: nginx
+    ports:
+    - containerPort: 80
+```
+To create this Pod:
+```bash
+kubectl apply -f my-pod.yaml
+```
+
+### Viewing Pods
+List all Pods in the default namespace:
+```bash
+kubectl get pods
+```
+
+Describe a specific Pod:
+```bash
+kubectl describe pod my-pod
+```
+
+### Deleting a Pod
+To delete a Pod:
+```bash
+kubectl delete pod my-pod
+```
+
+---
+## 3. Kubernetes Deployments
+A Deployment provides declarative updates for Pods and ReplicaSets. It ensures that a specified number of Pod replicas are running at all times.
+
+### Creating a Deployment
+A basic Deployment definition:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: nginx
+        ports:
+        - containerPort: 80
+```
+To apply this Deployment:
+```bash
+kubectl apply -f my-deployment.yaml
+```
+
+### Viewing Deployments
+```bash
+kubectl get deployments
+```
+
+### Scaling a Deployment
+```bash
+kubectl scale deployment my-deployment --replicas=3
+```
+
+### Deleting a Deployment
+```bash
+kubectl delete deployment my-deployment
+```
+
 

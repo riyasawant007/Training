@@ -34,5 +34,4 @@ Get the NodePort to access the service:
 kubectl describe service my-service
 ```
 
-Next, we will proceed with Kubernetes Volumes (volumes).
 

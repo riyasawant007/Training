@@ -70,12 +70,45 @@ kubectl get nodes    # List all nodes in the cluster
 kubectl get services # List all services
 ```
 
-## View Command History
-To see the command history used for installation:
+---
+# 2.  Kubernetes Pods
+A Pod is the smallest and simplest unit in the Kubernetes object model. It represents a single instance of a running process in a cluster.
+
+### Creating a Pod
+A basic example of a Pod definition in YAML:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: my-container
+    image: nginx
+    ports:
+    - containerPort: 80
+```
+To create this Pod:
 ```bash
-history
+kubectl apply -f my-pod.yaml
 ```
 
----
-This guide covers the essential steps to set up Kubernetes using Minikube on Fedora. If you encounter any issues, ensure that Docker is running and that you have sufficient system resources allocated for Minikube.
+### Viewing Pods
+List all Pods in the default namespace:
+```bash
+kubectl get pods
+```
+
+Describe a specific Pod:
+```bash
+kubectl describe pod my-pod
+```
+
+### Deleting a Pod
+To delete a Pod:
+```bash
+kubectl delete pod my-pod
+```
+
+
 

@@ -75,5 +75,5 @@ kubectl describe pod my-volume-pod
 kubectl describe pod my-pvc-pod
 ```
 
-This single YAML file defines both a temporary volume (`emptyDir`) and a persistent volume with a claim (`PV` and `PVC`). Next, we will proceed with Init Containers and Multi-Container Pods.
+This single YAML file defines both a temporary volume (`emptyDir`) and a persistent volume with a claim (`PV` and `PVC`). 
 

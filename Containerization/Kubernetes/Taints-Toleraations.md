@@ -16,20 +16,13 @@ Taints and tolerations in Kubernetes control pod placement by preventing or allo
 ```bash
 kubectl taint nodes <node-name> key=value:NoSchedule
 ```
-Example:
-```bash
-kubectl taint nodes node1 role=database:NoSchedule
-```
 This prevents any pod without a toleration for `role=database` from being scheduled on `node1`.
 
 ### **2. Remove a Taint from a Node**
 ```bash
 kubectl taint nodes <node-name> key=value:NoSchedule-
 ```
-Example:
-```bash
-kubectl taint nodes node1 role=database:NoSchedule-
-```
+
 
 ### **3. Add a Toleration to a Pod**
 Define tolerations in a Pod's YAML file:
@@ -61,4 +54,3 @@ This allows the pod to be scheduled on a node with `role=database:NoSchedule`.
   ```
 
 Taints and tolerations are crucial for defining node-pod relationships, ensuring that workloads are placed on appropriate nodes based on resource needs and isolation requirements.
-

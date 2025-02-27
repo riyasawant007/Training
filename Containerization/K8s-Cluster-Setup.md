@@ -139,6 +139,3 @@ kubeadm token create --print-join-command
 | **Removing Nodes** | Uses `kubectl drain` + `kubectl delete node` |
 
 ---
-
-
-

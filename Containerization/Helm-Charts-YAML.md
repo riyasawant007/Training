@@ -67,13 +67,120 @@ spec:
 ```
 
 ## 📌 Using Helm with Kubernetes
-### 🔹 Install an Nginx Helm Chart
+
+## 1. Install Helm on Fedora
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
+
+Verify installation:
+
+```bash
+helm version
+```
+
+## 2. Add Helm Repositories
+Helm uses repositories to store charts. Add the official Helm chart repository:
+
+```bash
+helm repo add stable https://charts.helm.sh/stable
+helm repo update
+```
+
+List available repositories:
+
+```bash
+helm repo list
+```
+
+## 3. Install an Example Helm Chart
+Install the **Nginx** chart from the Bitnami repository:
+
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install my-nginx bitnami/nginx
 ```
 
+Check the status of the deployed release:
+
+```bash
+helm list
+```
+
+View installed pods:
+
+```bash
+kubectl get pods
+```
+
+## 4. Helm Chart Structure
+A Helm chart consists of:
+
+```
+mychart/
+  ├── charts/            # Dependency charts
+  ├── templates/         # Kubernetes manifests (YAML files)
+  ├── values.yaml        # Default values
+  ├── Chart.yaml         # Chart metadata
+  ├── README.md          # Documentation
+```
+
+## 5. Create a Custom Helm Chart
+Create a new Helm chart:
+
+```bash
+helm create mychart
+```
+
+Modify `values.yaml`:
+
+```yaml
+replicaCount: 2
+image:
+  repository: nginx
+  tag: latest
+service:
+  type: LoadBalancer
+  port: 80
+```
+
+Install the custom chart:
+
+```bash
+helm install myapp ./mychart
+```
+
+Check deployment:
+
+```bash
+kubectl get all
+```
+
+## 6. Upgrade & Rollback
+To upgrade:
+
+```bash
+helm upgrade myapp ./mychart
+```
+
+To rollback:
+
+```bash
+helm rollback myapp 1
+```
+
+## 7. Uninstall Helm Release
+
+```bash
+helm uninstall myapp
+```
+
+---
+
+
 ## 📌 Key Takeaways
 ✅ **Helm** simplifies Kubernetes deployments.  
 ✅ **Helm Charts** provide reusable templates.  
 ✅ **YAML** is used for Kubernetes configurations.  
+

@@ -1,14 +1,5 @@
 # Apache (httpd) Configuration on Fedora
 
-## Table of Contents
-1. [Installation of Apache](#installation-of-apache)
-2. [Configuring Apache as a Reverse Proxy](#configuring-apache-as-a-reverse-proxy)
-3. [Enabling SSL (HTTPS) with Apache](#enabling-ssl-https-with-apache)
-4. [Configuring DNS in Apache](#configuring-dns-in-apache)
-5. [Serving a Frontend (HTML Page)](#serving-a-frontend-html-page)
-6. [Hiding or Changing Apache Server Name](#hiding-or-changing-apache-server-name)
-
----
 
 ## **1. Installation of Apache**
 

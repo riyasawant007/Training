@@ -52,8 +52,8 @@ sudo systemctl start redis
 
 ### **1.4 Install Feast**
 ```bash
-pip install feast[postgres]
-pip install feast[redis]
+sudo dnf install gcc gcc-c++ python3-devel
+pip install feast
 ```
 
 ### **1.5 Verify Feast Installation**

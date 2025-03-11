@@ -82,7 +82,7 @@ def update(
         HTTPException(status_code=400, detail=f"Item with {item_id=} already exists.")
     if all(info is None for info in (name, price, count)):
         raise HTTPException(
-            status_code=400, detail="No parameteres provided for update."
+            status_code=400, detail="No parameters provided for update."
             )
     
     item = items[item_id]
